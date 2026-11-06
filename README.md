@@ -10,6 +10,12 @@ Download the **[USB installer](https://github.com/ntwm787/Jellyfin-on-GEN5W/rele
 
 The USB ZIP contains only `NEMESIS.data` and `Packages/jellyfin.gen5w.libre.zip`. Source code is provided separately in this repository and as a release source archive.
 
+## Source code
+
+- **[Browse the source code](SOURCE-CODE.md)** - links to the application, network helper and build files.
+- **[Download the complete source code ZIP](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/download/v1.0.0/Jellyfin-on-GEN5W-v1.0.0-Source.zip)**.
+- [Build instructions](docs/BUILD.md).
+
 ## Requirements
 
 A Gen5W system running Android 4.4 / API 19 with 32-bit ARM and NEMESIS installed, plus a Jellyfin server reachable through head-unit **Wi-Fi**, such as a phone hotspot.
@@ -58,7 +64,7 @@ The USB installer installs both Jellyfin and this helper. Installing the APK by 
 
 Use head-unit Wi-Fi or a phone hotspot. Android Auto internet sharing has not been verified for this app.
 
-## Source and licenses
+## Licenses and credits
 
 The Jellyfin Android application retains the upstream **GNU GPL v2** license. The Jellyfin API client retains its MIT license, and vendored ExoPlayer, Koin and ModernAndroidPreferences retain Apache-2.0 licenses. Original notices remain in their source trees. Installer/wrapper code retains its separate MIT notice; that does not relicense the Jellyfin app.
 

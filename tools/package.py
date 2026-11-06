@@ -22,7 +22,7 @@ def main():
     for folder,prefix in [('network-guard','guard'),('licenses','licenses')]:
         for f in (ROOT/folder).iterdir():
             if f.is_file():inner[prefix+'/'+f.name]=f.read_bytes()
-    for f in ['README.md','CREDITS.md','THIRD-PARTY-NOTICES.md','MODIFICATIONS.md']:inner[f]=(ROOT/f).read_bytes()
+    for f in ['README.md','SOURCE-CODE.md','CREDITS.md','THIRD-PARTY-NOTICES.md','MODIFICATIONS.md']:inner[f]=(ROOT/f).read_bytes()
     inner['TESTED.md']=(ROOT/'docs/TESTED.md').read_bytes()
     source={}
     for f in ROOT.rglob('*'):

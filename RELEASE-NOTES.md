@@ -10,6 +10,10 @@ First public release.
 - The factory media-app screen appears only when exiting Jellyfin, reported as normal head-unit behavior.
 - Quick Connect works.
 
+## Source code
+
+**[Browse the source code](https://github.com/ntwm787/Jellyfin-on-GEN5W/blob/v1.0.0/SOURCE-CODE.md)** or download the **Source code (complete project)** asset below. The source ZIP contains the application, build files, installer, network helper and licenses.
+
 ## Setup order
 
 1. Install the **[Gen5 codec patch](https://github.com/KramerTech/gen5-codec-patch)**.
