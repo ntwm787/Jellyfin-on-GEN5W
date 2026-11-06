@@ -1,6 +1,6 @@
 # Tested and confirmed working
 
-Release: v2.1.1-gen5w.17. Vehicle confirmation supplied by the head-unit user on November 5, 2026.
+Public release: v1.0.0, using the unchanged internal gen5w.17 APK. Vehicle confirmation supplied by the head-unit user on November 5, 2026.
 
 The release APK was confirmed working on a Gen5W head unit:
 

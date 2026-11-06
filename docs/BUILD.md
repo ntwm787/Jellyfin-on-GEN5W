@@ -23,3 +23,5 @@ Lint must have zero NewApi findings. Five existing errors remain in voice-search
 Source provenance is in jellyfin-gen5w/SOURCE-PROVENANCE.json. Source changes are described in MODIFICATIONS.md; original notices remain in vendored trees. Excluded test media and the prebuilt ktlint utility are not build inputs.
 
 The published USB APK must match docs/RELEASE-MANIFEST.json. Rebuilds can differ because of environment/debug signing. A newly rebuilt APK must not be called vehicle-tested without confirmation.
+
+The first public release is v1.0.0. Its NEMESIS package version is 1.0.0. The unchanged vehicle-tested APK retains internal version 2.1.1-gen5w.17; see RELEASE-MANIFEST.json for its SHA-256.

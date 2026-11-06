@@ -6,7 +6,7 @@ This is an independent Gen5W port of **Jellyfin Android v2.1.1 Libre**, made pos
 
 ## Download
 
-Download the **[USB installer](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest/download/Jellyfin-on-GEN5W-2.1.1-gen5w.17-USB.zip)** from [Releases](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest).
+Download the **[USB installer](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest/download/Jellyfin-on-GEN5W-v1.0.0-USB.zip)** from [Releases](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest).
 
 The USB ZIP contains only `NEMESIS.data` and `Packages/jellyfin.gen5w.libre.zip`. Source code is provided separately in this repository and as a release source archive.
 

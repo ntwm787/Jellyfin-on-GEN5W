@@ -1,4 +1,6 @@
-# Jellyfin on GEN5W - v2.1.1-gen5w.17
+# Jellyfin on GEN5W - v1.0.0
+
+First public release.
 
 **Tested and confirmed working on a Gen5W head unit.**
 

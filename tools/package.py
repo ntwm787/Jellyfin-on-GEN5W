@@ -12,11 +12,11 @@ def pack(files):
     return b.getvalue()
 def main():
     p=argparse.ArgumentParser();p.add_argument('--apk',type=Path,required=True);p.add_argument('--out',type=Path,default=ROOT/'dist');a=p.parse_args()
-    apk=a.apk.read_bytes();v=re.search(r'versionName = "([^"]+)"',(ROOT/'jellyfin-gen5w/app/build.gradle.kts').read_text(encoding='utf-8')).group(1);name='Jellyfin-on-GEN5W-'+v
+    apk=a.apk.read_bytes();v=json.loads((ROOT/'docs/RELEASE-MANIFEST.json').read_text())['public_version'];name='Jellyfin-on-GEN5W-v'+v
     meta=(ROOT/'packaging/NEMESIS.data').read_bytes()
     for key,limit in [('short-desc',64),('detailed-desc',256)]:
         t=re.search(r'(?m)^'+key+r'=(.*)$',meta.decode());assert t and len(t.group(1).rstrip('\r'))<=limit
-    assert ('package-version=2.1.1.'+v.rsplit('.',1)[1]).encode() in meta
+    assert ('package-version='+v).encode() in meta
     with zipfile.ZipFile(io.BytesIO(apk)) as z:assert z.testzip() is None
     inner={'NEMESIS.data':meta,'app/Jellyfin-on-GEN5W.apk':apk,'scripts/pre.sh':(ROOT/'packaging/scripts/pre.sh').read_bytes()}
     for folder,prefix in [('network-guard','guard'),('licenses','licenses')]:
