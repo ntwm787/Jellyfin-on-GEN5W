@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="network_message">Wil je downloads toestaan over mobiele data of tijdens roaming\? Je provider kan kosten in rekening brengen.</string>
+    <string name="network_title">Toegestane netwerk types</string>
+    <string name="downloading">Downloaden</string>
+    <string name="mobile_data_and_roaming">Mobiele data &amp; roaming</string>
+    <string name="mobile_data">Mobiele data</string>
+    <string name="wifi_only">Alleen op WiFi</string>
+    <string name="battery_optimizations_message">Zet batterijoptimalisatie uit om media te spelen wanneer het scherm uit is.</string>
+    <string name="connection_error_invalid_format">Host heeft een ongeldig formaat</string>
+    <string name="host_input_hint">Host</string>
+    <string name="connect_button_text">Verbind</string>
+    <string name="connect_to_server_title">Verbind met server</string>
+    <string name="pref_enable_exoplayer_summary">Gebruik de experimentele video speler voor betere integratie met het besturingssysteem</string>
+    <string name="pref_enable_exoplayer_title">Gebruik ingebouwde video speler</string>
+    <string name="pref_category_video_player">Videospeler</string>
+    <string name="pref_music_notification_always_dismissible_title">Muziek notificatie kan weggeveegd worden</string>
+    <string name="pref_category_music_player">Muziek speler</string>
+    <string name="activity_name_settings">Jellyfin Instellingen</string>
+    <string name="menu_item_none">Geen</string>
+    <string name="external_player_unknown_error">Onbekende fout in externe speler. Tracking afspelen uitgeschakeld.</string>
+    <string name="external_player_invalid_player">Geen geldige externe speler geselecteerd. Tracking afspelen uitgeschakeld.</string>
+    <string name="external_player_not_supported_yet">Het volgen van afspelen wordt nog niet ondersteund in de geselecteerde externe speler. Neem contact op met de ontwikkelaars om er ondersteuning voor toe te voegen.</string>
+    <string name="external_player_invalid_play_method">Ongeldige afspeelmethode.</string>
+    <string name="pref_exoplayer_allow_background_audio">Sta het afspelen van audio op de achtergrond toe op de standaard speler</string>
+    <string name="playback_info_and_x_more">...en nog %d more</string>
+    <string name="playback_info_audio_streams">Audiostreams</string>
+    <string name="playback_info_video_streams">Videostreams</string>
+    <string name="playback_info_transcoding">Transcodering: %b</string>
+    <string name="playback_info_play_method">Afspeelmethode: %s</string>
+    <string name="notification_action_stop">Stop</string>
+    <string name="notification_action_next">Volgende</string>
+    <string name="notification_action_fast_forward">Doorspoelen</string>
+    <string name="notification_action_pause">Pauze</string>
+    <string name="notification_action_play">Speel</string>
+    <string name="notification_action_rewind">Terugspoelen</string>
+    <string name="notification_action_previous">Vorige</string>
+    <string name="download_no_storage_permission">Kan geen bestanden downloaden zonder machtigingen</string>
+    <string name="connection_error_cannot_connect">Er kan geen verbinding worden gemaakt.
+\nControleer de hostnaam en uw netwerkverbinding.</string>
+    <string name="video_player_native">Standaard speler</string>
+    <string name="video_player_external_description">Externe video-afspeelapps zoals MX Player en VLC</string>
+    <string name="video_player_native_description">Gebaseerd op ExoPlayer, ondersteunt meer videoformaten en codecs, en is meer geïntegreerd in het besturingssysteem</string>
+    <string name="video_player_web_description">De standaard HTML-videospeler van de webinterface</string>
+    <string name="video_player_external">Externe speler</string>
+    <string name="video_player_web">Webplayer</string>
+    <string name="pref_video_player_type_title">Videospeler type</string>
+    <string name="available_servers_title">Beschikbare servers</string>
+    <string name="choose_server_button_text">Kies server</string>
+    <string name="pref_exoplayer_allow_brightness_volume_gesture">Helderheid en volume gebaren toestaan in standaard speler</string>
+    <string name="external_player_mpv_description">Een simpele, kleine en vrije videospeler. Het ondersteunt een groot aantal media formaten.</string>
+    <string name="external_player_mpv">MPV Speler</string>
+    <string name="external_player_app">Externe speler applicatie</string>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <!-- Application theme -->
+    <style name="AppTheme.V21" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/jellyfin_primary</item>
+        <item name="colorPrimaryDark">@color/jellyfin_primary_dark</item>
+        <item name="colorAccent">@color/jellyfin_accent</item>
+        <item name="android:windowBackground">@color/theme_background</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.V21" />
+
+    <!-- Settings theme -->
+    <style name="AppTheme.Settings" />
+</resources>

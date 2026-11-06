@@ -1,0 +1,22 @@
+{
+  "jellyfin-android-v2.1.1-source.zip": {
+    "sha256": "b2a764182e8819b95bbc9928bf7995a9d229013067eb72c558f3988770ead345",
+    "bytes": 2314563
+  },
+  "google__ExoPlayer-r2.12.0.zip": {
+    "sha256": "44a716aa475a724d84bee08bda0ad94d216b1ff92f49faaa168257b72e826e22",
+    "bytes": 24160121
+  },
+  "InsertKoinIO__koin-2.1.6.zip": {
+    "sha256": "3af5a3b82e89ec0a632b38ca97a038ed396ddc26c65b1888bf4fdd20a63a12b5",
+    "bytes": 36048351
+  },
+  "jellyfin__jellyfin-apiclient-java-v0.7.7.zip": {
+    "sha256": "c75924a52fca37b2f7d4d1b81575c1f086305bf141c9ecbe41ef909e07c7fde2",
+    "bytes": 295213
+  },
+  "Maxr1998__ModernAndroidPreferences-1.1.0-alpha3.zip": {
+    "sha256": "e5a52522076c80afb69c6017ad3c0afb7d0e244c9e3837d971bcb095d2a848ab",
+    "bytes": 1067373
+  }
+}

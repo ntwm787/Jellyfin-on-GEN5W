@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand and base colors -->
+    <color name="jellyfin_primary">#202020</color>
+    <color name="jellyfin_primary_dark">#101010</color>
+    <color name="jellyfin_accent">#00a4dc</color>
+
+    <!-- Launcher icon background -->
+    <color name="ic_launcher_background">#000b25</color>
+
+    <!-- App colors -->
+    <color name="theme_background">#101010</color>
+    <color name="logo_text_color">#fafafa</color>
+    <color name="error_text_color">#b00020</color>
+    <color name="playback_controls_background">#60000000</color>
+    <color name="playback_info_background">#cc000000</color>
+</resources>

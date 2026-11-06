@@ -1,0 +1,10 @@
+work/
+dist/
+*.apk
+*.zip
+*.jks
+*.keystore
+local.properties
+.gradle/
+**/build/
+__pycache__/

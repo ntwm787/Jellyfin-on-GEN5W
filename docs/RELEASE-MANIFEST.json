@@ -1,0 +1,16 @@
+{
+  "version": "2.1.1-gen5w.17",
+  "tested_apk_sha256": "1fc78e04c362e365262f0782cf0aaa0e1b5d8c879d9822ffe4506e7aa50e6f76",
+  "vehicle_tested": true,
+  "confirmation_source": "head-unit user, 2026-11-05",
+  "confirmed": [
+    "audio fully working",
+    "audio-track and subtitle selection",
+    "video and Back/swipe navigation",
+    "factory media-app screen only when exiting; reported normal",
+    "Quick Connect confirmed earlier"
+  ],
+  "firmware_or_model_lock": false,
+  "all_gen5w_variants_tested": false,
+  "payload_rebuilt_for_release": false
+}

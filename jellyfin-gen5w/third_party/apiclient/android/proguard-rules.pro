@@ -1,0 +1,2 @@
+-keep class org.jellyfin.apiclient.model.**.* { *; }
+-keep class org.jellyfin.apiclient.discovery.* { *; }

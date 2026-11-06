@@ -1,0 +1,11 @@
+-- [2.1] --
+* Fragment Manager -> injection by fragment
+* JUnit rule ~ AutoCloseKoinTest()
+
+-- TODO --
+
+-- Doc --
+
+* blog post on medium
+
+

@@ -1,0 +1,25 @@
+[nemesis]
+version=1.1
+id=jellyfin.gen5w.libre
+name=Jellyfin on GEN5W
+type=application,service
+package-version=2.1.1.17
+short-desc=Jellyfin: lighter UI, parked video, downloads disabled.
+detailed-desc=Gen5W Jellyfin client. Install KeyBORD first, then activate with KeyBORD Activator for server address and username entry. Existing working KeyBORD works. Quick Connect works too. No firmware-version lock.
+os=any
+models=any
+preinstall=scripts/pre.sh
+preuninstall=guard/preuninstall.sh
+
+[app.0]
+kind=apk
+path=app/Jellyfin-on-GEN5W.apk
+package=org.jellyfin.gen5w.debug
+component=org.jellyfin.gen5w.debug/org.jellyfin.mobile.MainActivity
+
+[service.0]
+name=jellyfin-network
+kind=sh
+path=guard/netguard.sh
+uid=root
+mode=restart

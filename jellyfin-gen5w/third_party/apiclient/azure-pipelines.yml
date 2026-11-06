@@ -1,0 +1,89 @@
+variables:
+  - group: 'jellyfin'
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - master
+      - release*
+  tags:
+    include:
+      - '*'
+
+pr:
+  branches:
+    include:
+      - '*'
+
+jobs:
+  - job: Test
+    displayName: 'Test'
+
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+      - task: Gradle@2
+        displayName: 'Run Tests'
+        inputs:
+          gradleWrapperFile: 'gradlew'
+          tasks: 'test'
+          publishJUnitResults: true
+          testResultsFiles: '**/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          sonarQubeRunAnalysis: false
+
+  - job: Build
+    displayName: 'Build'
+
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+      - task: Gradle@2
+        displayName: 'Build'
+        inputs:
+          gradleWrapperFile: 'gradlew'
+          tasks: 'distZip'
+          publishJUnitResults: false
+          testResultsFiles: '**/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          sonarQubeRunAnalysis: false
+
+  - job: Publish
+    displayName: 'Publish'
+
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/tags')
+
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+      - script: 'echo "##vso[task.setvariable variable=JELLYFIN_VERSION]$(git describe --tags)"'
+        displayName: 'Set Version Variable'
+
+      - task: Gradle@2
+        displayName: 'Build, Distribute & Publish'
+        inputs:
+          gradleWrapperFile: 'gradlew'
+          tasks: 'publish distZip'
+          publishJUnitResults: false
+          testResultsFiles: '**/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          sonarQubeRunAnalysis: false
+        env:
+          BINTRAY_KEY: $(bintray_key)
+
+      - task: GithubRelease@0
+        displayName: 'GitHub Upload'
+        inputs:
+          gitHubConnection: Jellyfin Release Download
+          repositoryName: jellyfin/jellyfin-apiclient-java
+          assets: |
+            $(Build.SourcesDirectory)/**/distributions/*-$(JELLYFIN_VERSION).zip
+            $(Build.SourcesDirectory)/**/libs/*-$(JELLYFIN_VERSION).jar
+            $(Build.SourcesDirectory)/**/libs/*-$(JELLYFIN_VERSION)-sources.jar
+          action: 'edit'
+          assetUploadMode: 'replace'
+          tag: '$(JELLYFIN_VERSION)'

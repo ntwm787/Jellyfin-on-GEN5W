@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="downloading">Letöltés</string>
+    <string name="mobile_data_and_roaming">Mobil adat és Roaming</string>
+    <string name="mobile_data">Mobil adat</string>
+    <string name="wifi_only">Csak WiFi</string>
+    <string name="network_message">Engedélyezed a letöltést mobil adatforgalom és roaming esetén\? Lehetséges, hogy a szolgáltató felárat számol fel.</string>
+    <string name="network_title">Engedélyezett hálózat típusok</string>
+    <string name="battery_optimizations_message">Ahhoz, hogy a lejátszás kikapcsolt képernyő mellett is működhessen, kapcsold ki az akkumulátor optimalizálást.</string>
+    <string name="connection_error_invalid_format">A hoszt formátuma helytelen</string>
+    <string name="connect_button_text">Kapcsolódás</string>
+    <string name="host_input_hint">Hoszt</string>
+    <string name="connect_to_server_title">Kapcsolódás a szerverhez</string>
+    <string name="pref_enable_exoplayer_summary">A kísérleti ExoPlayer engedélyezése, amely több formátumot és kodeket támogat, és jobban integrálva van az Androidba</string>
+    <string name="pref_enable_exoplayer_title">Videólejátszó integrációjának engedélyezése</string>
+    <string name="pref_category_video_player">Natív videólejátszó</string>
+    <string name="pref_music_notification_always_dismissible_title">Legyenek a zenelejátszó értesítések mindig elvethetők</string>
+    <string name="pref_category_music_player">Zenelejátszó</string>
+    <string name="activity_name_settings">Jellyfin Beállítások</string>
+    <string name="menu_item_none">Nincs</string>
+    <string name="playback_info_and_x_more">...és %d további</string>
+    <string name="playback_info_audio_streams">Audio sávok</string>
+    <string name="playback_info_video_streams">Video sávok</string>
+    <string name="playback_info_transcoding">Transzkódolás: %b</string>
+    <string name="notification_action_next">Következő</string>
+    <string name="notification_action_fast_forward">Előrepörgetés</string>
+    <string name="notification_action_pause">Szünet</string>
+    <string name="notification_action_play">Lejátszás</string>
+    <string name="notification_action_rewind">Visszatekerés</string>
+    <string name="notification_action_previous">Előző</string>
+    <string name="download_no_storage_permission">A fájlok letöltéséhez engedély kell a tárhelyhez</string>
+    <string name="connection_error_cannot_connect">A kapcsolat nem hozható létre.
+\nKérjük ellenőrizd az ip-címet és az internet kapcsolatod.</string>
+    <string name="external_player_app">Külső lejátszó alkalmazás</string>
+    <string name="video_player_external_description">Külső videólejátszó alkalmazások, mint MX Player és VLC</string>
+    <string name="video_player_external">Külső lejátszó</string>
+    <string name="pref_video_player_type_title">Videólejátszó típusa</string>
+    <string name="external_player_invalid_play_method">Érvénytelen lejátszási mód.</string>
+    <string name="notification_action_stop">Állj</string>
+    <string name="available_servers_title">Elérhető szerverek</string>
+    <string name="choose_server_button_text">Válassz szervert</string>
+</resources>

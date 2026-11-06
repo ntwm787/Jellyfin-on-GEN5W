@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 30
+    buildToolsVersion '29.0.3'
+    defaultConfig { minSdkVersion 19; targetSdkVersion 30 }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+}
+apply plugin: 'kotlin-android'
+android.kotlinOptions { jvmTarget = '1.8' }
+dependencies { api project(':koin-android'); api 'androidx.fragment:fragment:1.2.5' }
