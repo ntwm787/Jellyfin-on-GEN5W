@@ -18,6 +18,6 @@ Gen5W changes include Android API 19 compatibility, native ExoPlayer playback, i
 
 ## Gen5W ecosystem
 
-Thanks to [NEMESIS](https://github.com/xwtk/hmg_nemesis) and its contributors for package installation, [KramerTech's Gen5 codec patch](https://github.com/KramerTech/gen5-codec-patch) for platform codec enablement, and [KeyBORD](https://github.com/ntwm787/KeyBORD-Gen5W) and its underlying keyboard/activation contributors for text input. These are separate projects and are not bundled or relicensed by this release.
+Thanks to [NEMESIS](https://github.com/xwtk/hmg_nemesis) and its contributors for package installation, [KramerTech's Gen5 codec patch](https://github.com/KramerTech/gen5-codec-patch) for platform codec enablement, and [KeyBORD / KeyBridge](https://github.com/ntwm787/KeyBORD-Gen5W) and their underlying keyboard/activation contributors for text input. These are separate projects and are not bundled or relicensed by this release.
 
 The Gen5W port is maintained in [ntwm787/Jellyfin-on-GEN5W](https://github.com/ntwm787/Jellyfin-on-GEN5W). Vehicle confirmation was provided by the head-unit user on November 5, 2026.

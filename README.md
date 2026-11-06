@@ -12,28 +12,26 @@ The USB ZIP contains only `NEMESIS.data` and `Packages/jellyfin.gen5w.libre.zip`
 
 ## Requirements
 
-- A Gen5W system running Android 4.4 / API 19 with 32-bit ARM, with NEMESIS installed.
-- The separate [Gen5 codec patch](https://github.com/KramerTech/gen5-codec-patch) for native video decoding.
-- A Jellyfin server reachable through head-unit **Wi-Fi**, such as a phone hotspot.
-- **[KeyBORD](https://github.com/ntwm787/KeyBORD-Gen5W)** installed and activated for typing.
+A Gen5W system running Android 4.4 / API 19 with 32-bit ARM and NEMESIS installed, plus a Jellyfin server reachable through head-unit **Wi-Fi**, such as a phone hotspot.
 
 Designed for Gen5W without a firmware-version or vehicle-model lock. Other infotainment generations are not supported. Vehicle testing confirms the tested setup, not every Gen5W variant.
 
+## Setup order
+
+1. Install the **[Gen5 codec patch](https://github.com/KramerTech/gen5-codec-patch)**.
+2. Install **[KeyBORD](https://github.com/ntwm787/KeyBORD-Gen5W)**.
+3. Activate the keyboard using **KeyBridge**, provided in the [KeyBORD repository](https://github.com/ntwm787/KeyBORD-Gen5W).
+4. Install **Jellyfin on GEN5W**.
+
+To install Jellyfin, park the vehicle and let the head unit finish booting. Extract the USB installer ZIP to the USB root. Keep `jellyfin.gen5w.libre.zip` intact inside the NEMESIS **`Packages` folder**, with `NEMESIS.data` at the root. Use one NEMESIS operation per drive. Insert the drive, confirm installation and launch **Jellyfin on GEN5W** from NEMESIS Manager.
+
 ## Keyboard and sign-in
 
-1. Install **KeyBORD** first, then activate it with **KeyBORD Activator**.
-2. You can then use the keyboard in Jellyfin. If KeyBORD already works on your head unit, it will work here too; no setup again is needed.
-3. Use the keyboard to enter at least your **server address and username** when signing in with a username, plus your password if required.
+After KeyBORD is activated with KeyBridge, you can use the keyboard in Jellyfin. If KeyBORD already works on your head unit, it will work here too; no setup again is needed.
+
+Connect the head unit to Wi-Fi and wait for network protection to be ready. Use the keyboard to enter at least your **server address and username** when signing in with a username, plus your password if required.
 
 **Quick Connect works!** Enter the server address and choose Quick Connect on the Jellyfin sign-in screen as an alternative to entering a username and password. The server screen also has **KeyBORD setup & sign-in** help.
-
-## Install
-
-1. Park the vehicle and let the head unit finish booting.
-2. If an earlier copy is installed, uninstall it through NEMESIS first. This removes its saved sign-in/settings.
-3. Extract the USB installer ZIP to the USB root. Keep `jellyfin.gen5w.libre.zip` intact inside the NEMESIS **`Packages` folder**, with `NEMESIS.data` at the root. Use one NEMESIS operation per drive.
-4. Insert the drive and confirm installation. Launch **Jellyfin on GEN5W** from NEMESIS Manager.
-5. Connect the head unit to Wi-Fi, wait for network protection to be ready, enter your server address and sign in normally or with Quick Connect.
 
 ## Confirmed behavior
 
