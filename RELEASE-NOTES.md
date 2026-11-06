@@ -1,40 +1,24 @@
-# Jellyfin on GEN5W - v1.0.0
+# Jellyfin on GEN5W - v1.0.1
 
-First public release.
+Packaging update for the NEMESIS store. The APK is unchanged from the vehicle-tested v1.0.0 release; audio, audio-track selection, subtitles and Back/swipe retain the confirmed app behavior. This revised installer has been validated locally; store acceptance and a new vehicle installation have not been confirmed.
 
-**Tested and confirmed working on a Gen5W head unit.**
+## Declared installer dependencies
 
-- Audio is fully working.
-- In-player audio-track and subtitle selection work.
-- Video and Back/button swipe navigation work.
-- The factory media-app screen appears only when exiting Jellyfin, reported as normal head-unit behavior.
-- Quick Connect works.
+- media.codecs >=2.1 - Gen5 codec patch.
+- keyboard.hackers >=2.0.1 - KeyBORD / Hacker's Keyboard.
+- keyboard.activate >=2.0.1 - KeyBridge activation.
 
-## Source code
-
-**[Browse the source code](https://github.com/ntwm787/Jellyfin-on-GEN5W/blob/v1.0.0/SOURCE-CODE.md)** or download the **Source code (complete project)** asset below. The source ZIP contains the application, build files, installer, network helper and licenses.
+The keyboard is for typing, not a runtime requirement of Jellyfin itself. The NEMESIS store installer checks these registered packages as dependencies.
 
 ## Setup order
 
-1. Install the **[Gen5 codec patch](https://github.com/KramerTech/gen5-codec-patch)**.
-2. Install **[KeyBORD](https://github.com/ntwm787/KeyBORD-Gen5W)**.
-3. Activate the keyboard using **KeyBridge**, provided in the [KeyBORD repository](https://github.com/ntwm787/KeyBORD-Gen5W).
-4. Install **Jellyfin on GEN5W**.
+1. Install the [Gen5 codec patch](https://github.com/KramerTech/gen5-codec-patch).
+2. Install [KeyBORD](https://github.com/ntwm787/KeyBORD-Gen5W).
+3. Activate the keyboard with KeyBridge from the KeyBORD repository.
+4. Install Jellyfin.
 
-Download the USB ZIP and extract it to USB root. Keep the inner ZIP intact inside the NEMESIS **Packages** folder. Complete source is provided separately in the repository and Source ZIP. SHA256SUMS.txt covers both ZIPs.
+Use the NEMESIS package ZIP for the publisher portal, or the USB ZIP for installation from a drive. Source and SHA256SUMS.txt are supplied separately. Quick Connect works; an existing working keyboard remains usable by the app.
 
-After activation with KeyBridge, use KeyBORD to enter your server address and username. An already-working KeyBORD works in Jellyfin. **Quick Connect works** as an alternative to username/password sign-in after entering the server address.
+Jellyfin includes a background helper installed through NEMESIS that restricts the app to Wi-Fi and blocks BlueLink modem data. The USB/store package installs both the app and helper. An APK by itself does not include the helper.
 
-Requires NEMESIS, Gen5W Android API19/ARM, the separate Gen5 codec patch and Wi-Fi. BlueLink modem data and downloads are blocked. Video requires confirmed stationary-in-Park status. Streaming adapts to connection speed up to 1080p. There is no firmware-version or model lock; every Gen5W variant has not been tested.
-
-## Network protection
-
-Jellyfin includes a small background helper installed through NEMESIS. It restricts Jellyfin's internet access to Wi-Fi so the app cannot use the BlueLink modem.
-
-The USB installer installs both Jellyfin and this helper. Installing the APK by itself does not include the helper.
-
-**Install using the NEMESIS USB package. It includes the protection that blocks BlueLink modem data.**
-
-This independent port is based on Jellyfin Android v2.1.1 Libre. Credit goes to the Jellyfin project and contributors. The application retains its upstream GPL v2 license. MIT/Apache licenses and original copyright notices are preserved; see CREDITS.md and THIRD-PARTY-NOTICES.md. NEMESIS, KeyBORD and the codec patch are separate projects.
-
-The released APK is the exact vehicle-tested binary. Release preparation changes documentation, credits and package notices only.
+Credit belongs to the Jellyfin project and contributors. The app retains the upstream GPL v2 license, with MIT/Apache notices preserved for the API client, libraries and wrapper tooling. See CREDITS.md and THIRD-PARTY-NOTICES.md.

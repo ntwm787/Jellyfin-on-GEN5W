@@ -3,11 +3,12 @@ version=1.1
 id=jellyfin.gen5w.libre
 name=Jellyfin on GEN5W
 type=application,service
-package-version=1.0.0
+package-version=1.0.1
 short-desc=Jellyfin: lighter UI, parked video, downloads disabled.
 detailed-desc=Requires the Gen5 codec patch, then KeyBORD. Activate the keyboard with KeyBridge from the KeyBORD project, then install Jellyfin. Existing working KeyBORD works. Quick Connect works. No firmware-version lock.
 os=any
 models=any
+depends=media.codecs@>=2.1,keyboard.hackers@>=2.0.1,keyboard.activate@>=2.0.1
 preinstall=scripts/pre.sh
 preuninstall=guard/preuninstall.sh
 

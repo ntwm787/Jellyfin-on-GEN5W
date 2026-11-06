@@ -8,7 +8,7 @@ From the repository root:
 
 The APK appears in jellyfin-gen5w/app/build/outputs/apk/libre/debug/. The internal debug app ID is retained for install/network-guard compatibility. The distributed APK is development signed and debuggable. Publication does not change the tested payload or migrate signing keys.
 
-To create USB-only and source ZIPs plus checksums:
+To create the NEMESIS store package, USB-only installer and source ZIPs plus checksums:
 
     python tools/package.py --apk path/to/jellyfin-android-v2.1.1-gen5w.17-libre-debug.apk
 
@@ -25,3 +25,5 @@ Source provenance is in jellyfin-gen5w/SOURCE-PROVENANCE.json. Source changes ar
 The published USB APK must match docs/RELEASE-MANIFEST.json. Rebuilds can differ because of environment/debug signing. A newly rebuilt APK must not be called vehicle-tested without confirmation.
 
 The first public release is v1.0.0. Its NEMESIS package version is 1.0.0. The unchanged vehicle-tested APK retains internal version 2.1.1-gen5w.17; see RELEASE-MANIFEST.json for its SHA-256.
+
+The descriptor explicitly requires media.codecs >=2.1, keyboard.hackers >=2.0.1 and keyboard.activate >=2.0.1. These are NEMESIS package IDs, not Android application IDs. Store and USB packages contain the same inner installer bytes.

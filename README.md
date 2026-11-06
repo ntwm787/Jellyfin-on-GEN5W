@@ -6,14 +6,14 @@ This is an independent Gen5W port of **Jellyfin Android v2.1.1 Libre**, made pos
 
 ## Download
 
-Download the **[USB installer](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest/download/Jellyfin-on-GEN5W-v1.0.0-USB.zip)** from [Releases](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest).
+Download the **[USB installer](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest/download/Jellyfin-on-GEN5W-v1.0.1-USB.zip)** from [Releases](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/latest).
 
 The USB ZIP contains only `NEMESIS.data` and `Packages/jellyfin.gen5w.libre.zip`. Source code is provided separately in this repository and as a release source archive.
 
 ## Source code
 
 - **[Browse the source code](SOURCE-CODE.md)** - links to the application, network helper and build files.
-- **[Download the complete source code ZIP](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/download/v1.0.0/Jellyfin-on-GEN5W-v1.0.0-Source.zip)**.
+- **[Download the complete source code ZIP](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/download/v1.0.1/Jellyfin-on-GEN5W-v1.0.1-Source.zip)**.
 - [Build instructions](docs/BUILD.md).
 
 ## Requirements
@@ -30,6 +30,20 @@ Designed for Gen5W without a firmware-version or vehicle-model lock. Other infot
 4. Install **Jellyfin on GEN5W**.
 
 To install Jellyfin, park the vehicle and let the head unit finish booting. Extract the USB installer ZIP to the USB root. Keep `jellyfin.gen5w.libre.zip` intact inside the NEMESIS **`Packages` folder**, with `NEMESIS.data` at the root. Use one NEMESIS operation per drive. Insert the drive, confirm installation and launch **Jellyfin on GEN5W** from NEMESIS Manager.
+
+## NEMESIS store dependencies
+
+The store installer declares these dependencies:
+
+| Package | Minimum package version | Purpose |
+|---|---|---|
+| `media.codecs` | 2.1 | Gen5 video codec patch |
+| `keyboard.hackers` | 2.0.1 | KeyBORD / Hacker's Keyboard for typing |
+| `keyboard.activate` | 2.0.1 | KeyBridge keyboard activation |
+
+The keyboard is needed for entering text; Jellyfin itself can run without it. These are installer dependencies required for this store package. NEMESIS checks the registered package IDs, versions and the dependency packages' own compatibility rules. The app's runtime behavior is unchanged.
+
+For the publisher portal, use the **[NEMESIS store package](https://github.com/ntwm787/Jellyfin-on-GEN5W/releases/download/v1.0.1/Jellyfin-on-GEN5W-v1.0.1-NEMESIS.zip)**. The USB wrapper is for installation from a drive.
 
 ## Keyboard and sign-in
 

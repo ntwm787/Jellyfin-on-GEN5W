@@ -17,6 +17,8 @@ def main():
     for key,limit in [('short-desc',64),('detailed-desc',256)]:
         t=re.search(r'(?m)^'+key+r'=(.*)$',meta.decode());assert t and len(t.group(1).rstrip('\r'))<=limit
     assert ('package-version='+v).encode() in meta
+    dep=re.search(r'(?m)^depends=(.*)$',meta.decode());assert dep
+    assert set(dep.group(1).strip().strip(chr(34)).split(','))=={'media.codecs@>=2.1','keyboard.hackers@>=2.0.1','keyboard.activate@>=2.0.1'}
     with zipfile.ZipFile(io.BytesIO(apk)) as z:assert z.testzip() is None
     inner={'NEMESIS.data':meta,'app/Jellyfin-on-GEN5W.apk':apk,'scripts/pre.sh':(ROOT/'packaging/scripts/pre.sh').read_bytes()}
     for folder,prefix in [('network-guard','guard'),('licenses','licenses')]:
@@ -32,7 +34,8 @@ def main():
         if f.name=='local.properties' or f.suffix.lower() in {'.apk','.zip','.jks','.keystore','.p12','.pem','.key'}:continue
         source['Jellyfin-on-GEN5W/'+rel.as_posix()]=f.read_bytes()
     a.out.mkdir(parents=True,exist_ok=True)
-    assets={name+'-USB.zip':pack({'NEMESIS.data':(ROOT/'packaging/USB-NEMESIS.data').read_bytes(),'Packages/jellyfin.gen5w.libre.zip':pack(inner)}),name+'-Source.zip':pack(source)}
+    store=pack(inner)
+    assets={name+'-NEMESIS.zip':store,name+'-USB.zip':pack({'NEMESIS.data':(ROOT/'packaging/USB-NEMESIS.data').read_bytes(),'Packages/jellyfin.gen5w.libre.zip':store}),name+'-Source.zip':pack(source)}
     for n,d in assets.items():(a.out/n).write_bytes(d)
     manifest={n:{'sha256':hashlib.sha256(d).hexdigest(),'bytes':len(d)} for n,d in assets.items()}
     (a.out/'SHA256SUMS.txt').write_text(''.join(i['sha256']+'  '+n+'\n' for n,i in sorted(manifest.items())),encoding='utf-8')
