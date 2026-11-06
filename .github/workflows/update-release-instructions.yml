@@ -1,0 +1,70 @@
+name: Correct release installation instructions
+on:
+  push:
+    paths:
+      - 'Jellyfin-on-GEN5W-v1.0.0-Source.zip'
+      - 'Jellyfin-on-GEN5W-v1.0.0-USB.zip'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update reviewed instructions and release bundles, retaining tested APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,io,json,os,subprocess,urllib.request,urllib.parse,zipfile
+          root=Path.cwd();base='https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']
+          name='Jellyfin-on-GEN5W-v1.0.0'
+          expected={name+'-USB.zip':'2f326efdf65cc8a24a542c098300795e9cb221a4d3c3c6da122edd2f1aeb4ef2',name+'-Source.zip':'c27b363206f006553011d69c39784fffbadfb0e7642bd3817ede081f030a29ec'}
+          assets={n:(root/n).read_bytes() for n in expected}
+          for n,b in assets.items():assert hashlib.sha256(b).hexdigest()==expected[n]
+          assets['SHA256SUMS.txt']=(root/'SHA256SUMS.txt').read_bytes()
+          with zipfile.ZipFile(io.BytesIO(assets[name+'-USB.zip'])) as outer:
+              assert set(outer.namelist())=={'NEMESIS.data','Packages/jellyfin.gen5w.libre.zip'}
+              with zipfile.ZipFile(io.BytesIO(outer.read('Packages/jellyfin.gen5w.libre.zip'))) as inner:
+                  assert hashlib.sha256(inner.read('app/Jellyfin-on-GEN5W.apk')).hexdigest()=='1fc78e04c362e365262f0782cf0aaa0e1b5d8c879d9822ffe4506e7aa50e6f76'
+                  assert 'KeyBridge' in inner.read('README.md').decode()
+          with zipfile.ZipFile(io.BytesIO(assets[name+'-Source.zip'])) as source:
+              for entry in source.infolist():
+                  if entry.is_dir():continue
+                  assert entry.filename.startswith('Jellyfin-on-GEN5W/')
+                  dest=(root/entry.filename[len('Jellyfin-on-GEN5W/'):]).resolve();assert dest.is_relative_to(root)
+                  dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(source.read(entry))
+          for f in ['README.md','RELEASE-NOTES.md']:
+              t=Path(f).read_text()
+              assert 'Uninstall existing copies' not in t and 'saved sign-in/settings' not in t
+              assert t.index('1. Install the **[Gen5 codec patch]')<t.index('2. Install **[KeyBORD]')<t.index('3. Activate the keyboard using **KeyBridge**')<t.index('4. Install **Jellyfin on GEN5W**')
+          for n in expected:(root/n).unlink()
+          Path('.github/workflows/update-release-instructions.yml').unlink()
+          subprocess.run(['git','config','user.name','ntwm787'],check=True)
+          subprocess.run(['git','config','user.email','349138637+ntwm787@users.noreply.github.com'],check=True)
+          subprocess.run(['git','add','--all'],check=True)
+          subprocess.run(['git','commit','-m','Correct setup order: codec patch, KeyBORD, KeyBridge, Jellyfin'],check=True)
+          subprocess.run(['git','push','origin','HEAD:main'],check=True)
+          commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'Gen5W-release-instruction-update'}
+          def api(url,data=None,method=None,content_type=None):
+              h=dict(headers)
+              if content_type:h['Content-Type']=content_type
+              elif data is not None:data=json.dumps(data).encode();h['Content-Type']='application/json'
+              req=urllib.request.Request(url,data=data,headers=h,method=method)
+              with urllib.request.urlopen(req,timeout=120) as r:
+                  b=r.read();return json.loads(b) if b else None
+          release=api(base+'/releases/436160397');assert release['tag_name']=='v1.0.0'
+          oldtag=api(base+'/git/ref/tags/v1.0.0');assert oldtag['object']['sha']=='7338393b92e7e34be5ecda448df6b6a9b710dfac'
+          previous={a['name']:a for a in release['assets']};assert set(previous)==set(assets)
+          api(base+'/git/refs/tags/v1.0.0',{'sha':commit,'force':True},'PATCH')
+          release=api(base+'/releases/436160397',{'body':Path('RELEASE-NOTES.md').read_text(),'target_commitish':commit},'PATCH')
+          upload=release['upload_url'].split('{',1)[0]
+          for n,b in assets.items():
+              api(base+'/releases/assets/'+str(previous[n]['id']),method='DELETE')
+              result=api(upload+'?name='+urllib.parse.quote(n),b,'POST','application/zip' if n.endswith('.zip') else 'text/plain')
+              assert result['size']==len(b)
+          print('Updated instructions and bundles:',release['html_url'])
+          PY
