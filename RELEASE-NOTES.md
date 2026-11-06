@@ -23,6 +23,14 @@ After activation with KeyBridge, use KeyBORD to enter your server address and us
 
 Requires NEMESIS, Gen5W Android API19/ARM, the separate Gen5 codec patch and Wi-Fi. BlueLink modem data and downloads are blocked. Video requires confirmed stationary-in-Park status. Streaming adapts to connection speed up to 1080p. There is no firmware-version or model lock; every Gen5W variant has not been tested.
 
+## Network protection
+
+Jellyfin includes a small background helper installed through NEMESIS. It restricts Jellyfin's internet access to Wi-Fi so the app cannot use the BlueLink modem.
+
+The USB installer installs both Jellyfin and this helper. Installing the APK by itself does not include the helper.
+
+**Install using the NEMESIS USB package. It includes the protection that blocks BlueLink modem data.**
+
 This independent port is based on Jellyfin Android v2.1.1 Libre. Credit goes to the Jellyfin project and contributors. The application retains its upstream GPL v2 license. MIT/Apache licenses and original copyright notices are preserved; see CREDITS.md and THIRD-PARTY-NOTICES.md. NEMESIS, KeyBORD and the codec patch are separate projects.
 
 The released APK is the exact vehicle-tested binary. Release preparation changes documentation, credits and package notices only.

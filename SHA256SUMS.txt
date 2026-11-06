@@ -1,2 +1,2 @@
-c27b363206f006553011d69c39784fffbadfb0e7642bd3817ede081f030a29ec  Jellyfin-on-GEN5W-v1.0.0-Source.zip
-2f326efdf65cc8a24a542c098300795e9cb221a4d3c3c6da122edd2f1aeb4ef2  Jellyfin-on-GEN5W-v1.0.0-USB.zip
+b67807d74ae27d5e50c3be6b55a29e6c8aa938f63f2f0e8956259b9c50230cdd  Jellyfin-on-GEN5W-v1.0.0-Source.zip
+847509d4722e1d42f99f68cc3bda3143ece4afa65c62d0c9767644aef4333e8f  Jellyfin-on-GEN5W-v1.0.0-USB.zip

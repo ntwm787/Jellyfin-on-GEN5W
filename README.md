@@ -48,8 +48,15 @@ See the [testing record](docs/TESTED.md) for the confirmation and its scope.
 - Video requires fresh factory confirmation that the vehicle is stationary in Park. Unknown vehicle status blocks video.
 - Streaming adapts to connection speed, up to **1080p**.
 - Content downloads are disabled.
-- **BlueLink modem data is blocked.** Use Wi-Fi or a phone hotspot. Android Auto internet sharing has not been verified for this app.
-- A root network service protects this app's IPv4, IPv6 and DNS traffic. Install the full NEMESIS package; an APK alone is not the supported installation.
+## Network protection
+
+Jellyfin includes a small background helper installed through NEMESIS. It restricts Jellyfin's internet access to Wi-Fi so the app cannot use the BlueLink modem.
+
+The USB installer installs both Jellyfin and this helper. Installing the APK by itself does not include the helper.
+
+**Install using the NEMESIS USB package. It includes the protection that blocks BlueLink modem data.**
+
+Use head-unit Wi-Fi or a phone hotspot. Android Auto internet sharing has not been verified for this app.
 
 ## Source and licenses
 

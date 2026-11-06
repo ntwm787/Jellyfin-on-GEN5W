@@ -1,8 +1,14 @@
-# Jellyfin Gen5W network guard
+# Jellyfin network protection
 
-This NEMESIS root service accompanies gen5w.6. The APK alone intentionally stays
-offline. Its production interface is `wlan0`, verified in the supplied Wi-Fi
-capture. The app separately requires Android's connected Wi-Fi client state;
+Jellyfin includes a small background helper installed through NEMESIS. It restricts Jellyfin's internet access to Wi-Fi so the app cannot use the BlueLink modem.
+
+The USB installer installs both Jellyfin and this helper. Installing the APK by itself does not include the helper.
+
+**Install using the NEMESIS USB package. It includes the protection that blocks BlueLink modem data.**
+
+## Technical details
+
+The NEMESIS helper runs with root privileges to enforce app-specific network restrictions. Its production interface is `wlan0`, verified in the supplied Wi-Fi capture. The app separately requires Android's connected Wi-Fi client state;
 the head unit broadcasting a hotspot is insufficient. No Android Auto sharing
 interface is currently allowlisted.
 
@@ -31,7 +37,7 @@ permitted interface in the owned emulator. The NEMESIS service passes no lab
 option, and the APK still refuses an eth0 heartbeat. The tests use controlled
 local endpoints and never connect to a vehicle modem.
 
-The scripts are original wrapper code under the repository's MIT license.
+The scripts are original wrapper code under the [wrapper MIT license](../licenses/Wrapper-MIT.txt).
 The Android app retains Jellyfin's GPL-2.0 license. API behavior was checked
 against these Android 4.4.2 primary sources:
 
